@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix | Video Streaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/netflix.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-play-circle"></i> StreamFlix
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#movies">Movies</a>
+                <a href="#series">Series</a>
+                <a href="#new">New Releases</a>
+                <a href="#trending">Trending</a>
+            </div>
+            <div class="nav-actions">
+                <a href="admin.html" class="admin-link" style="display:none;">
+                    <i class="fas fa-user-cog"></i> Admin
+                </a>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner" id="home">
+        <div class="hero-content">
+            <h1>Unlimited Movies, TV Shows, and More</h1>
+            <p>Watch anywhere. Cancel anytime.</p>
+            <button class="btn-watch-now">
+                <i class="fas fa-play"></i> Watch Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Video Categories -->
+    <section class="section" id="movies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Movies</h2>
+                <div class="section-controls">
+                    <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="video-carousel" data-category="movies">
+                <!-- Movies will load here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-dark" id="series">
+        <div class="container">
+            <div class="section-header">
+                <h2>TV Series</h2>
+                <div class="section-controls">
+                    <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="video-carousel" data-category="series">
+                <!-- Series will load here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="new">
+        <div class="container">
+            <div class="section-header">
+                <h2>New Releases</h2>
+                <div class="section-controls">
+                    <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="video-carousel" data-category="new">
+                <!-- New releases will load here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Player Modal -->
+    <div class="video-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Now Playing</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="video-container">
+                <video id="video-player" controls>
+                    <source id="video-source" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-info">
+                <h4 id="video-title"></h4>
+                <div class="video-meta">
+                    <span><i class="fas fa-star"></i> <span id="video-rating">0.0</span></span>
+                    <span><i class="fas fa-clock"></i> <span id="video-duration">0:00</span></span>
+                    <span><i class="fas fa-calendar"></i> <span id="video-year">2023</span></span>
+                </div>
+                <p id="video-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-play-circle"></i> StreamFlix</h3>
+                    <p>Premium streaming service for movies and TV shows.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Browse</h4>
+                    <a href="#movies">Movies</a>
+                    <a href="#series">TV Series</a>
+                    <a href="#new">New Releases</a>
+                    <a href="#trending">Trending</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Help</h4>
+                    <a href="#">FAQ</a>
+                    <a href="#">Support</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <a href="#">Settings</a>
+                    <a href="#">History</a>
+                    <a href="#">Watchlist</a>
+                    <a href="admin.html" class="admin-link" style="display:none;">Admin Panel</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 StreamFlix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadVideos();
+            const urlParams = new URLSearchParams(window.location.search);
+            if(urlParams.has('admin')) {
+                document.querySelectorAll('.admin-link').forEach(link => {
+                    link.style.display = 'block';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

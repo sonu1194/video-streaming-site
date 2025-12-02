@@ -1,0 +1,70 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "The Great Adventure",
+      "description": "An epic journey through unknown lands filled with mystery and wonder.",
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      "category": "movies",
+      "rating": 4.5,
+      "year": "2023",
+      "duration": "2:15"
+    },
+    {
+      "id": 2,
+      "title": "Space Odyssey",
+      "description": "A thrilling space exploration mission to the far reaches of the galaxy.",
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      "category": "movies",
+      "rating": 4.8,
+      "year": "2023",
+      "duration": "2:45"
+    },
+    {
+      "id": 3,
+      "title": "Mystery Island",
+      "description": "A group of explorers discover a mysterious island with ancient secrets.",
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      "category": "series",
+      "rating": 4.3,
+      "year": "2023",
+      "duration": "45:00"
+    },
+    {
+      "id": 4,
+      "title": "Tech Revolution",
+      "description": "Documentary about the latest technological breakthroughs shaping our future.",
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      "category": "new",
+      "rating": 4.0,
+      "year": "2023",
+      "duration": "1:30"
+    },
+    {
+      "id": 5,
+      "title": "Ocean Depths",
+      "description": "Explore the mysterious and beautiful world beneath the ocean's surface.",
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      "category": "movies",
+      "rating": 4.7,
+      "year": "2023",
+      "duration": "1:55"
+    },
+    {
+      "id": 6,
+      "title": "City Lights",
+      "description": "A romantic comedy set in the bustling streets of New York City.",
+      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      "category": "series",
+      "rating": 4.2,
+      "year": "2023",
+      "duration": "38:00"
+    }
+  ]
+}

@@ -16,7 +16,7 @@ async function loadVideos() {
                 id: 1,
                 title: "Sample Movie",
                 description: "This is a sample movie description.",
-                url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
                 thumbnail: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
                 category: "movies",
                 rating: 4.5,

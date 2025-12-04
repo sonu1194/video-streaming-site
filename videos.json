@@ -1,70 +1,382 @@
 {
-  "videos": [
+  "categories": [
     {
       "id": 1,
-      "title": "The Great Adventure",
-      "description": "An epic journey through unknown lands filled with mystery and wonder.",
-      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-      "thumbnail": "http://picsum.photos/id/1/200/300",
-      "category": "movies",
-      "rating": 4.5,
-      "year": "2023",
-      "duration": "2:15"
+      "name": "quran",
+      "displayName": "Quran Recitation & Tafsir",
+      "description": "Beautiful recitations of the Holy Quran with translation and explanation",
+      "icon": "fas fa-quran",
+      "color": "#0d6e3f"
     },
     {
       "id": 2,
-      "title": "Space Odyssey",
-      "description": "A thrilling space exploration mission to the far reaches of the galaxy.",
-      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
-      "thumbnail": "http://picsum.photos/200/300",
-      "category": "movies",
-      "rating": 4.8,
-      "year": "2023",
-      "duration": "2:45"
+      "name": "sunnah",
+      "displayName": "Hadith & Sunnah",
+      "description": "Authentic teachings from Prophet Muhammad (PBUH)",
+      "icon": "fas fa-book-open",
+      "color": "#095530"
     },
     {
       "id": 3,
-      "title": "Mystery Island",
-      "description": "A group of explorers discover a mysterious island with ancient secrets.",
-      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
-      "thumbnail": "http://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-      "category": "series",
-      "rating": 4.3,
-      "year": "2023",
-      "duration": "45:00"
+      "name": "lectures",
+      "displayName": "Islamic Lectures",
+      "description": "Educational lectures on various Islamic topics",
+      "icon": "fas fa-graduation-cap",
+      "color": "#8e44ad"
     },
     {
       "id": 4,
-      "title": "Tech Revolution",
-      "description": "Documentary about the latest technological breakthroughs shaping our future.",
-      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-      "thumbnail": "http://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-      "category": "new",
-      "rating": 4.0,
-      "year": "2023",
-      "duration": "1:30"
+      "name": "kids",
+      "displayName": "Kids Corner",
+      "description": "Islamic content specially designed for children",
+      "icon": "fas fa-child",
+      "color": "#3498db"
     },
     {
       "id": 5,
-      "title": "Ocean Depths",
-      "description": "Explore the mysterious and beautiful world beneath the ocean's surface.",
-      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-      "thumbnail": "http://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-      "category": "movies",
-      "rating": 4.7,
-      "year": "2023",
-      "duration": "1:55"
+      "name": "arabic",
+      "displayName": "Arabic Learning",
+      "description": "Learn Arabic language to understand Quran better",
+      "icon": "fas fa-language",
+      "color": "#e74c3c"
     },
     {
       "id": 6,
-      "title": "City Lights",
-      "description": "A romantic comedy set in the bustling streets of New York City.",
-      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-      "thumbnail": "http://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-      "category": "series",
-      "rating": 4.2,
-      "year": "2023",
-      "duration": "38:00"
+      "name": "dua",
+      "displayName": "Duas & Supplications",
+      "description": "Daily prayers and supplications from Quran and Sunnah",
+      "icon": "fas fa-hands-praying",
+      "color": "#f39c12"
     }
-  ]
+  ],
+  
+  "videos": [
+    {
+      "id": 1,
+      "title": "Surah Al-Fatiha with Translation",
+      "description": "Beautiful recitation of Surah Al-Fatiha with English translation and detailed explanation of each verse's meaning and significance in daily prayers.",
+      "category": "quran",
+      "videoUrl": "https://example.com/videos/surah-fatiha.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Sheikh Mishary Rashid Alafasy",
+      "duration": "8:45",
+      "date": "2024-01-15",
+      "views": 12500,
+      "likes": 980,
+      "difficulty": "beginner",
+      "language": "Arabic with English subtitles",
+      "tags": ["recitation", "translation", "tafsir", "beginner"],
+      "relatedVideos": [2, 3]
+    },
+    {
+      "id": 2,
+      "title": "Surah Yasin Full Recitation",
+      "description": "Complete recitation of Surah Yasin, known as the heart of the Quran, with beautiful tajweed and melodious voice.",
+      "category": "quran",
+      "videoUrl": "https://example.com/videos/surah-yasin.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1541544181056-3b8f5b8f9c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Sheikh Abdul Rahman Al-Sudais",
+      "duration": "22:30",
+      "date": "2024-01-10",
+      "views": 8900,
+      "likes": 750,
+      "difficulty": "intermediate",
+      "language": "Arabic",
+      "tags": ["full-surah", "melodious", "tajweed"],
+      "relatedVideos": [1, 4]
+    },
+    {
+      "id": 3,
+      "title": "40 Hadith Nawawi - Introduction",
+      "description": "Introduction to the famous collection of 40 Hadith compiled by Imam Nawawi, explaining the importance of these hadiths in daily life.",
+      "category": "sunnah",
+      "videoUrl": "https://example.com/videos/hadith-nawawi.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1594736797933-d0e6e4f6f8e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Dr. Yasir Qadhi",
+      "duration": "45:30",
+      "date": "2024-01-12",
+      "views": 15600,
+      "likes": 1200,
+      "difficulty": "beginner",
+      "language": "English",
+      "tags": ["hadith", "nawawi", "introduction", "sunnah"],
+      "relatedVideos": [4, 5]
+    },
+    {
+      "id": 4,
+      "title": "The Prophet's Character (Seerah)",
+      "description": "Detailed lecture about the beautiful character and manners of Prophet Muhammad (PBUH) and how to implement them in our lives.",
+      "category": "sunnah",
+      "videoUrl": "https://example.com/videos/prophets-character.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Mufti Menk",
+      "duration": "38:15",
+      "date": "2024-01-05",
+      "views": 23400,
+      "likes": 1900,
+      "difficulty": "beginner",
+      "language": "English",
+      "tags": ["seerah", "character", "manners", "prophet"],
+      "relatedVideos": [3, 6]
+    },
+    {
+      "id": 5,
+      "title": "The Importance of Seeking Knowledge",
+      "description": "Friday lecture about the virtue of seeking Islamic knowledge and its importance in the life of a Muslim.",
+      "category": "lectures",
+      "videoUrl": "https://example.com/videos/seeking-knowledge.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Mufti Ismail Menk",
+      "duration": "42:20",
+      "date": "2024-01-08",
+      "views": 18700,
+      "likes": 1500,
+      "difficulty": "beginner",
+      "language": "English",
+      "tags": ["knowledge", "education", "importance", "lecture"],
+      "relatedVideos": [6, 7]
+    },
+    {
+      "id": 6,
+      "title": "Fiqh of Prayer (Salah)",
+      "description": "Comprehensive guide to the rules and etiquette of prayer according to the Quran and Sunnah.",
+      "category": "lectures",
+      "videoUrl": "https://example.com/videos/fiqh-salah.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Sheikh Assim Al-Hakeem",
+      "duration": "55:10",
+      "date": "2024-01-03",
+      "views": 31200,
+      "likes": 2400,
+      "difficulty": "intermediate",
+      "language": "Arabic with English subtitles",
+      "tags": ["fiqh", "salah", "prayer", "rules"],
+      "relatedVideos": [5, 8]
+    },
+    {
+      "id": 7,
+      "title": "Prophet Stories for Children - Prophet Adam",
+      "description": "Animated story of Prophet Adam (AS) designed for children with engaging visuals and simple explanation.",
+      "category": "kids",
+      "videoUrl": "https://example.com/videos/prophet-adam-kids.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Islamic Kids TV",
+      "duration": "18:30",
+      "date": "2024-01-01",
+      "views": 45600,
+      "likes": 3800,
+      "difficulty": "kids",
+      "language": "English",
+      "tags": ["prophet", "adam", "kids", "animated", "story"],
+      "relatedVideos": [8, 9]
+    },
+    {
+      "id": 8,
+      "title": "Arabic Alphabet for Beginners",
+      "description": "Learn Arabic alphabet from scratch with proper pronunciation and writing practice.",
+      "category": "arabic",
+      "videoUrl": "https://example.com/videos/arabic-alphabet.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Ustadh Nouman Ali Khan",
+      "duration": "35:45",
+      "date": "2024-01-18",
+      "views": 12500,
+      "likes": 1100,
+      "difficulty": "beginner",
+      "language": "English",
+      "tags": ["arabic", "alphabet", "beginners", "language"],
+      "relatedVideos": [7, 10]
+    },
+    {
+      "id": 9,
+      "title": "Morning and Evening Adhkar",
+      "description": "Complete collection of morning and evening remembrances from authentic sources with English translation.",
+      "category": "dua",
+      "videoUrl": "https://example.com/videos/morning-evening-adhkar.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Sheikh Muhammad bin Salih Al-Uthaymin",
+      "duration": "28:15",
+      "date": "2024-01-14",
+      "views": 18900,
+      "likes": 1600,
+      "difficulty": "beginner",
+      "language": "Arabic with English translation",
+      "tags": ["adhkar", "dua", "remembrance", "morning", "evening"],
+      "relatedVideos": [10, 11]
+    },
+    {
+      "id": 10,
+      "title": "Surah Al-Mulk - Explanation",
+      "description": "Detailed tafsir of Surah Al-Mulk, explaining its virtues and deep meanings verse by verse.",
+      "category": "quran",
+      "videoUrl": "https://example.com/videos/surah-mulk-tafsir.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Dr. Zakir Naik",
+      "duration": "1:15:30",
+      "date": "2024-01-20",
+      "views": 9200,
+      "likes": 850,
+      "difficulty": "advanced",
+      "language": "English",
+      "tags": ["tafsir", "explanation", "deep-dive", "surah-mulk"],
+      "relatedVideos": [9, 12]
+    },
+    {
+      "id": 11,
+      "title": "The Five Pillars of Islam",
+      "description": "Basic introduction to the five pillars of Islam for new Muslims and those seeking to refresh their knowledge.",
+      "category": "lectures",
+      "videoUrl": "https://example.com/videos/five-pillars.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1587653915936-3c13c4bdfb70?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Dr. Bilal Philips",
+      "duration": "33:45",
+      "date": "2024-01-16",
+      "views": 16700,
+      "likes": 1350,
+      "difficulty": "beginner",
+      "language": "English",
+      "tags": ["pillars", "basics", "foundation", "new-muslims"],
+      "relatedVideos": [4, 6]
+    },
+    {
+      "id": 12,
+      "title": "Islamic Manners for Children",
+      "description": "Teaching children basic Islamic manners and etiquette through fun animation and stories.",
+      "category": "kids",
+      "videoUrl": "https://example.com/videos/islamic-manners-kids.mp4",
+      "thumbnail": "https://images.unsplash.com/photo-1530424717055-8c7c5e5c2d16?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "speaker": "Little Muslims TV",
+      "duration": "25:20",
+      "date": "2024-01-22",
+      "views": 28900,
+      "likes": 2450,
+      "difficulty": "kids",
+      "language": "English",
+      "tags": ["manners", "etiquette", "children", "animated"],
+      "relatedVideos": [7, 13]
+    }
+  ],
+  
+  "speakers": [
+    {
+      "id": 1,
+      "name": "Sheikh Mishary Rashid Alafasy",
+      "bio": "Famous Quran reciter from Kuwait, known for his beautiful voice and tajweed.",
+      "image": "https://example.com/speakers/alafasy.jpg",
+      "specialization": "Quran Recitation",
+      "videosCount": 45
+    },
+    {
+      "id": 2,
+      "name": "Dr. Yasir Qadhi",
+      "bio": "American Islamic scholar and lecturer, Dean of Academic Affairs at AlMaghrib Institute.",
+      "image": "https://example.com/speakers/qadhi.jpg",
+      "specialization": "Islamic Theology & History",
+      "videosCount": 120
+    },
+    {
+      "id": 3,
+      "name": "Mufti Menk",
+      "bio": "Zimbabwean Islamic scholar, known for his motivational lectures and simple explanations.",
+      "image": "https://example.com/speakers/menk.jpg",
+      "specialization": "Motivational Islamic Lectures",
+      "videosCount": 200
+    },
+    {
+      "id": 4,
+      "name": "Sheikh Assim Al-Hakeem",
+      "bio": "Saudi Arabian Islamic scholar specializing in fiqh and fatwa.",
+      "image": "https://example.com/speakers/assim.jpg",
+      "specialization": "Fiqh & Fatwa",
+      "videosCount": 85
+    },
+    {
+      "id": 5,
+      "name": "Dr. Zakir Naik",
+      "bio": "Indian Islamic preacher and comparative religion scholar.",
+      "image": "https://example.com/speakers/naik.jpg",
+      "specialization": "Comparative Religion",
+      "videosCount": 150
+    },
+    {
+      "id": 6,
+      "name": "Ustadh Nouman Ali Khan",
+      "bio": "Pakistani-American Islamic speaker and Arabic linguist.",
+      "image": "https://example.com/speakers/nouman.jpg",
+      "specialization": "Arabic Language & Quranic Linguistics",
+      "videosCount": 95
+    }
+  ],
+  
+  "playlists": [
+    {
+      "id": 1,
+      "name": "Quran for Beginners",
+      "description": "Start your Quran journey with these beginner-friendly recitations and explanations",
+      "thumbnail": "https://example.com/playlists/quran-beginners.jpg",
+      "videoIds": [1, 2, 8],
+      "category": "quran"
+    },
+    {
+      "id": 2,
+      "name": "Daily Islamic Reminders",
+      "description": "Short videos for daily Islamic inspiration and reminders",
+      "thumbnail": "https://example.com/playlists/daily-reminders.jpg",
+      "videoIds": [4, 5, 9],
+      "category": "lectures"
+    },
+    {
+      "id": 3,
+      "name": "Islamic Kids Series",
+      "description": "Fun and educational Islamic content for children",
+      "thumbnail": "https://example.com/playlists/kids-series.jpg",
+      "videoIds": [7, 12],
+      "category": "kids"
+    },
+    {
+      "id": 4,
+      "name": "Learn Arabic in 30 Days",
+      "description": "Complete Arabic learning course for Quran understanding",
+      "thumbnail": "https://example.com/playlists/arabic-course.jpg",
+      "videoIds": [8],
+      "category": "arabic"
+    }
+  ],
+  
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "admin@alameeninstitute.org",
+      "role": "admin",
+      "createdAt": "2024-01-01",
+      "lastLogin": "2024-01-25"
+    }
+  ],
+  
+  "siteStats": {
+    "totalVideos": 150,
+    "totalViews": 1250000,
+    "totalUsers": 8500,
+    "totalHours": 450,
+    "lastUpdated": "2024-01-25T10:30:00Z"
+  },
+  
+  "settings": {
+    "siteName": "Al Ameen Institute",
+    "siteDescription": "Authentic Islamic knowledge for everyone",
+    "contactEmail": "contact@alameeninstitute.org",
+    "socialMedia": {
+      "facebook": "https://facebook.com/alameeninstitute",
+      "youtube": "https://youtube.com/alameeninstitute",
+      "instagram": "https://instagram.com/alameeninstitute",
+      "twitter": "https://twitter.com/alameeninst"
+    },
+    "features": {
+      "downloadEnabled": true,
+      "commentsEnabled": true,
+      "ratingsEnabled": true,
+      "subtitlesEnabled": true
+    }
+  }
 }

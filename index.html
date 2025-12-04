@@ -1,31 +1,31 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CINIMAHUT | Video Streaming</title>
+    <title>Al Ameen Institute | Islamic Learning Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/netflix.png">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/mosque.png">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-play-circle"></i> StreamFlix
+                <i class="fas fa-mosque"></i> Al Ameen Institute
             </a>
             <div class="nav-links">
                 <a href="#home" class="active">Home</a>
-                <a href="#movies">Movies</a>
-                <a href="#series">Series</a>
-                <a href="#new">New Releases</a>
-                <a href="#trending">Trending</a>
+                <a href="#quran">Quran</a>
+                <a href="#sunnah">Sunnah</a>
+                <a href="#lectures">Lectures</a>
+                <a href="#kids">Kids Corner</a>
             </div>
             <div class="nav-actions">
                 <a href="admin.html" class="admin-link" style="display:none;">
-                    <i class="fas fa-user-cog"></i> Admin
+                    <i class="fas fa-user-cog"></i> Admin Panel
                 </a>
                 <div class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -37,56 +37,71 @@
     <!-- Hero Banner -->
     <section class="hero-banner" id="home">
         <div class="hero-content">
-            <h1>Animated movies for kids</h1>
-            <p>Watch . Cancel anytime.</p>
+            <h1>Islamic Knowledge for Everyone</h1>
+            <p>Learn Quran, Sunnah, and Islamic Sciences. Anytime, Anywhere.</p>
             <button class="btn-watch-now">
-                <i class="fas fa-play"></i> Watch Now
+                <i class="fas fa-play"></i> Start Learning
             </button>
         </div>
     </section>
 
     <!-- Video Categories -->
-    <section class="section" id="movies">
+    <section class="section" id="quran">
         <div class="container">
             <div class="section-header">
-                <h2>Popular Movies</h2>
+                <h2><i class="fas fa-quran"></i> Quran Recitation & Tafsir</h2>
                 <div class="section-controls">
                     <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                     <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
-            <div class="video-carousel" data-category="movies">
-                <!-- Movies will load here -->
+            <div class="video-carousel" data-category="quran">
+                <!-- Quran videos will load here -->
             </div>
         </div>
     </section>
 
-    <section class="section bg-dark" id="series">
+    <section class="section bg-dark" id="sunnah">
         <div class="container">
             <div class="section-header">
-                <h2>TV Series</h2>
+                <h2><i class="fas fa-book-open"></i> Hadith & Sunnah</h2>
                 <div class="section-controls">
                     <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                     <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
-            <div class="video-carousel" data-category="series">
-                <!-- animation will load here -->
+            <div class="video-carousel" data-category="sunnah">
+                <!-- Hadith videos will load here -->
             </div>
         </div>
     </section>
 
-    <section class="section" id="new">
+    <section class="section" id="lectures">
         <div class="container">
             <div class="section-header">
-                <h2>New Releases</h2>
+                <h2><i class="fas fa-graduation-cap"></i> Islamic Lectures</h2>
                 <div class="section-controls">
                     <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                     <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
-            <div class="video-carousel" data-category="new">
-                <!-- New releases will load here -->
+            <div class="video-carousel" data-category="lectures">
+                <!-- Lectures will load here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-dark" id="kids">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-child"></i> Islamic Kids Corner</h2>
+                <div class="section-controls">
+                    <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="video-carousel" data-category="kids">
+                <!-- Kids videos will load here -->
             </div>
         </div>
     </section>
@@ -107,9 +122,9 @@
             <div class="video-info">
                 <h4 id="video-title"></h4>
                 <div class="video-meta">
-                    <span><i class="fas fa-star"></i> <span id="video-rating">0.0</span></span>
+                    <span><i class="fas fa-user"></i> <span id="video-speaker">Scholar</span></span>
                     <span><i class="fas fa-clock"></i> <span id="video-duration">0:00</span></span>
-                    <span><i class="fas fa-calendar"></i> <span id="video-year">2023</span></span>
+                    <span><i class="fas fa-calendar"></i> <span id="video-date">Date</span></span>
                 </div>
                 <p id="video-description"></p>
             </div>
@@ -121,38 +136,39 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3><i class="fas fa-play-circle"></i> StreamFlix</h3>
-                    <p>moives and animations cinimahut.</p>
+                    <h3><i class="fas fa-mosque"></i> Al Ameen Institute</h3>
+                    <p>Spreading authentic Islamic knowledge through digital means.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Browse</h4>
-                    <a href="#movies">Movies</a>
-                    <a href="#series">TV Series</a>
-                    <a href="#new">New Releases</a>
-                    <a href="#trending">Trending</a>
+                    <h4>Categories</h4>
+                    <a href="#quran">Quran</a>
+                    <a href="#sunnah">Sunnah</a>
+                    <a href="#lectures">Lectures</a>
+                    <a href="#kids">Kids Corner</a>
                 </div>
                 <div class="footer-section">
                     <h4>Help</h4>
                     <a href="#">FAQ</a>
                     <a href="#">Support</a>
                     <a href="#">Contact</a>
-                    <a href="#">Privacy</a>
+                    <a href="#">Privacy Policy</a>
                 </div>
                 <div class="footer-section">
                     <h4>Account</h4>
                     <a href="#">Settings</a>
-                    <a href="#">History</a>
-                    <a href="#">Watchlist</a>
+                    <a href="#">Watch History</a>
+                    <a href="#">Bookmarks</a>
                     <a href="admin.html" class="admin-link" style="display:none;">Admin Panel</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 cinimahut. All rights reserved.</p>
+                <p>&copy; 2024 Al Ameen Institute. All rights reserved.</p>
+                <p class="arabic-text">وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ</p>
             </div>
         </div>
     </footer>
@@ -170,4 +186,7 @@
         });
     </script>
 </body>
-</html>
+</html>        
+            
+
+  

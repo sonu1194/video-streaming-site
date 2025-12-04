@@ -1,165 +1,208 @@
-// Video data will be stored in localStorage
-const STORAGE_KEY = 'al-ameen-videos';
-const ADMIN_PASSWORD = 'alameen123'; // Change this for production
-
-// Sample Islamic videos
-const sampleVideos = {
-    quran: [
-        {
-            id: 1,
-            title: "Surah Al-Fatiha with Translation",
-            description: "Beautiful recitation of Surah Al-Fatiha with English translation and explanation.",
-            thumbnail: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-            videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-            speaker: "Sheikh Mishary Rashid",
-            duration: "5:24",
-            date: "2024-01-15",
-            category: "quran"
-        }
-    ],
-    sunnah: [
-        {
-            id: 2,
-            title: "40 Hadith Nawawi - Introduction",
-            description: "Introduction to the collection of 40 Hadith by Imam Nawawi.",
-            thumbnail: "https://images.unsplash.com/photo-1594736797933-d0e6e4f6f8e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-            videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-            speaker: "Dr. Yasir Qadhi",
-            duration: "45:30",
-            date: "2024-01-10",
-            category: "sunnah"
-        }
-    ],
-    lectures: [
-        {
-            id: 3,
-            title: "The Importance of Seeking Knowledge",
-            description: "Friday lecture about the virtue of seeking Islamic knowledge.",
-            thumbnail: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-            videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-            speaker: "Mufti Menk",
-            duration: "38:15",
-            date: "2024-01-05",
-            category: "lectures"
-        }
-    ],
-    kids: [
-        {
-            id: 4,
-            title: "Prophet Stories for Children",
-            description: "Animated stories of the Prophets for children.",
-            thumbnail: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-            videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-            speaker: "Islamic Kids TV",
-            duration: "22:45",
-            date: "2024-01-01",
-            category: "kids"
-        }
-    ]
+// Database configuration
+const DB_CONFIG = {
+  url: 'https://raw.githubusercontent.com/yourusername/al-ameen-institute/main/database/videos.json',
+  localKey: 'al-ameen-videos-local'
 };
 
-// Initialize videos in localStorage
-function initializeVideos() {
-    if (!localStorage.getItem(STORAGE_KEY)) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleVideos));
-    }
-}
-
-// Load videos for each category
-function loadVideos() {
-    initializeVideos();
-    const videos = JSON.parse(localStorage.getItem(STORAGE_KEY));
+// Load videos from JSON database
+async function loadVideos() {
+  try {
+    // Try to load from local storage first
+    const localData = localStorage.getItem(DB_CONFIG.localKey);
     
-    Object.keys(videos).forEach(category => {
-        const carousel = document.querySelector(`.video-carousel[data-category="${category}"]`);
-        if (carousel) {
-            carousel.innerHTML = '';
-            videos[category].forEach(video => {
-                carousel.appendChild(createVideoCard(video));
-            });
-        }
-    });
+    if (localData) {
+      displayVideos(JSON.parse(localData));
+    }
+    
+    // Always try to fetch from remote JSON
+    const response = await fetch(DB_CONFIG.url);
+    if (response.ok) {
+      const data = await response.json();
+      localStorage.setItem(DB_CONFIG.localKey, JSON.stringify(data));
+      displayVideos(data);
+    }
+  } catch (error) {
+    console.error('Error loading videos:', error);
+    // Load sample data if both fail
+    loadSampleVideos();
+  }
 }
 
-// Create video card element
+function displayVideos(data) {
+  const categories = data.categories || [];
+  const videos = data.videos || [];
+  
+  categories.forEach(category => {
+    const carousel = document.querySelector(`.video-carousel[data-category="${category.name}"]`);
+    if (carousel) {
+      carousel.innerHTML = '';
+      const categoryVideos = videos.filter(video => video.category === category.name);
+      
+      categoryVideos.forEach(video => {
+        carousel.appendChild(createVideoCard(video));
+      });
+      
+      // Add category header if exists
+      const sectionHeader = carousel.closest('.section').querySelector('.section-header h2');
+      if (sectionHeader) {
+        sectionHeader.innerHTML = `<i class="${category.icon}"></i> ${category.displayName}`;
+      }
+    }
+  });
+}
+
+// Updated createVideoCard function for JSON data
 function createVideoCard(video) {
-    const card = document.createElement('div');
-    card.className = 'video-card';
-    card.dataset.id = video.id;
-    card.dataset.category = video.category;
-    
-    card.innerHTML = `
-        <div class="video-thumbnail">
-            <img src="${video.thumbnail}" alt="${video.title}">
-            <div class="play-btn">
-                <i class="fas fa-play"></i>
-            </div>
-        </div>
-        <div class="video-info">
-            <h3>${video.title}</h3>
-            <div class="video-meta">
-                <span><i class="fas fa-user"></i> ${video.speaker}</span>
-                <span><i class="fas fa-clock"></i> ${video.duration}</span>
-            </div>
-            <p>${video.description.substring(0, 80)}...</p>
-        </div>
-    `;
-    
-    card.addEventListener('click', () => playVideo(video));
-    return card;
+  const card = document.createElement('div');
+  card.className = 'video-card';
+  card.dataset.id = video.id;
+  card.dataset.category = video.category;
+  
+  card.innerHTML = `
+    <div class="video-thumbnail">
+      <img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+      <div class="play-btn">
+        <i class="fas fa-play"></i>
+      </div>
+      ${video.duration ? `<div class="video-duration">${video.duration}</div>` : ''}
+    </div>
+    <div class="video-info">
+      <h3>${video.title}</h3>
+      <div class="video-meta">
+        <span><i class="fas fa-user"></i> ${video.speaker}</span>
+        <span><i class="fas fa-eye"></i> ${video.views ? formatNumber(video.views) : '0'}</span>
+        ${video.difficulty ? `<span class="difficulty ${video.difficulty}">${video.difficulty}</span>` : ''}
+      </div>
+      <p>${video.description.substring(0, 80)}...</p>
+    </div>
+  `;
+  
+  card.addEventListener('click', () => playVideo(video));
+  return card;
 }
 
-// Play video in modal
-function playVideo(video) {
-    const modal = document.querySelector('.video-modal');
-    const videoPlayer = document.getElementById('video-player');
-    const videoSource = document.getElementById('video-source');
-    
-    videoSource.src = video.videoUrl;
-    videoPlayer.load();
-    
-    document.getElementById('video-title').textContent = video.title;
-    document.getElementById('video-speaker').textContent = video.speaker;
-    document.getElementById('video-duration').textContent = video.duration;
-    document.getElementById('video-date').textContent = video.date;
-    document.getElementById('video-description').textContent = video.description;
-    
-    modal.style.display = 'flex';
+// Helper function to format numbers
+function formatNumber(num) {
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1) + 'M';
+  }
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1) + 'K';
+  }
+  return num.toString();
 }
 
-// Close modal
-document.querySelector('.close-modal')?.addEventListener('click', () => {
-    document.querySelector('.video-modal').style.display = 'none';
-    const videoPlayer = document.getElementById('video-player');
-    videoPlayer.pause();
-});
-
-// Carousel navigation
-document.querySelectorAll('.prev-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const carousel = this.closest('.section').querySelector('.video-carousel');
-        carousel.scrollLeft -= 300;
+// Updated admin panel code to work with JSON
+async function loadAdminVideos() {
+  try {
+    const response = await fetch(DB_CONFIG.url);
+    const data = await response.json();
+    const container = document.getElementById('videos-container');
+    
+    container.innerHTML = '';
+    
+    data.videos.sort((a, b) => b.id - a.id).forEach(video => {
+      const videoItem = document.createElement('div');
+      videoItem.className = 'video-item';
+      videoItem.innerHTML = `
+        <div>
+          <strong>${video.title}</strong>
+          <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
+            ${video.category} • ${video.speaker} • ${video.duration} • ${video.views} views
+          </div>
+        </div>
+        <div class="video-actions">
+          <button class="btn-edit" onclick="editVideo(${video.id})">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn-delete" onclick="deleteVideo(${video.id})">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      `;
+      container.appendChild(videoItem);
     });
-});
+  } catch (error) {
+    console.error('Error loading admin videos:', error);
+  }
+}
 
-document.querySelectorAll('.next-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const carousel = this.closest('.section').querySelector('.video-carousel');
-        carousel.scrollLeft += 300;
-    });
-});
+// Admin form submission for JSON
+document.getElementById('add-video-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const newVideo = {
+    id: Date.now(),
+    title: document.getElementById('title').value,
+    description: document.getElementById('description').value,
+    category: document.getElementById('category').value,
+    videoUrl: document.getElementById('videoUrl').value,
+    thumbnail: document.getElementById('thumbnail').value,
+    speaker: document.getElementById('speaker').value,
+    duration: document.getElementById('duration').value,
+    date: document.getElementById('date').value || new Date().toISOString().split('T')[0],
+    views: 0,
+    likes: 0,
+    difficulty: document.getElementById('difficulty').value || 'beginner',
+    language: document.getElementById('language').value || 'English',
+    tags: document.getElementById('tags').value ? document.getElementById('tags').value.split(',') : []
+  };
+  
+  try {
+    // In a real application, you would send this to a backend API
+    // For now, we'll update local storage
+    const localData = JSON.parse(localStorage.getItem(DB_CONFIG.localKey)) || { videos: [] };
+    localData.videos.push(newVideo);
+    localStorage.setItem(DB_CONFIG.localKey, JSON.stringify(localData));
+    
+    alert('Video added successfully! (Note: This is saved locally. In production, connect to a backend API)');
+    this.reset();
+    loadAdminVideos();
+  } catch (error) {
+    alert('Error adding video: ' + error.message);
+  }
+});// This script can be used with GitHub Actions to automatically update the JSON
+const fs = require('fs');
+const path = require('path');
 
-// Mobile menu toggle
-document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-});
+// Read current database
+const dbPath = path.join(__dirname, 'videos.json');
+let database = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
-// Close modal when clicking outside
-window.addEventListener('click', (e) => {
-    const modal = document.querySelector('.video-modal');
-    if (e.target === modal) {
-        modal.style.display = 'none';
-        document.getElementById('video-player').pause();
-    }
-});
+// Function to add new video
+function addVideo(videoData) {
+  videoData.id = Date.now();
+  database.videos.push(videoData);
+  
+  // Update stats
+  database.siteStats.totalVideos = database.videos.length;
+  database.siteStats.lastUpdated = new Date().toISOString();
+  
+  fs.writeFileSync(dbPath, JSON.stringify(database, null, 2));
+  console.log('Video added successfully!');
+}
+
+// Function to update video
+function updateVideo(id, updates) {
+  const index = database.videos.findIndex(v => v.id === id);
+  if (index !== -1) {
+    database.videos[index] = { ...database.videos[index], ...updates };
+    database.siteStats.lastUpdated = new Date().toISOString();
+    fs.writeFileSync(dbPath, JSON.stringify(database, null, 2));
+    console.log('Video updated successfully!');
+  } else {
+    console.log('Video not found');
+  }
+}
+
+// Example usage:
+// addVideo({
+//   title: "New Lecture",
+//   description: "Description here",
+//   category: "lectures",
+//   videoUrl: "https://example.com/video.mp4",
+//   thumbnail: "https://example.com/image.jpg",
+//   speaker: "Speaker Name",
+//   duration: "30:00",
+//   date: "2024-01-25"
+// });
